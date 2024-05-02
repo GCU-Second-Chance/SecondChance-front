@@ -3,44 +3,48 @@ import styled from 'styled-components';
 import HomeLogo from '../../assets/HomeLogo.svg';
 import { Link } from 'react-router-dom';
 import DogList from '../dog/DogList';
-import Loading from '../layout/Loading';
 
-const KEY = import.meta.env.VITE_API_KEY;
-const api_url = `http://openapi.seoul.go.kr:8088/${KEY}/xml/TbAdpWaitAnimalView/1/5/`;
+// const KEY = import.meta.env.VITE_API_KEY;
+// const IMG_KEY = import.meta.env.VITE_IMAGE_API_KEY;
 
 function Home() {
 
-    // const [loading, setLoading] = useState(true);
-    const [dogs, setDogs] = useState([])
+    // const [dogs, setDogs] = useState([])
+    // const [dogimages, setDogImages] = useState([])
 
 
-    const getDogs= async () => {
-        const json = await (
-            await fetch(api_url)
-        ).json();
+    // const getDogs= async () => {
+    //     const json = await (
+    //         await fetch(`http://openapi.seoul.go.kr:8088/${KEY}/json/TbAdpWaitAnimalView/1/37/`)
+    //     ).json();
+    //     setDogs(json.results);
+    //     console.log(json);
+    // }
 
-        
-        setDogs(json.results);
-        setLoading(false);
+    // const getDogImages = async () => {
+    //     const imagejson = await (
+    //         await fetch(`http://openapi.seoul.go.kr:8088/${IMG_KEY}/json/TbAdpWaitAnimalPhotoView/1/37/`)
+    //     ).json();
+    //     setDogImages(imagejson.results);
+    //     console.log(imagejson);
 
+    // }
 
-    }
-
-    useEffect(() => {
-        getDogs();
-    }, [])
+    // useEffect(() => {
+    //     getDogs();
+    //     getDogImages();
+    // }, [])
 
     return (
         <>
-        {/* {loading ? <Loading/> : */}
             <HomeBack >
             <HeaderImg src={HomeLogo}/>
                 <HomeTitle>아래 강아지 중에 한마리를 골라보실래요?</HomeTitle>
-                <DogList dogs={dogs}/>
+                <DogList dogs={dogs} images={dogimages}/>
                 <ShareButton>공유하고 1원 후원하기!</ShareButton>
                 <ReviewButton to="/outro">느낀점만 작성할래요</ReviewButton>
             </HomeBack>      
-            {/* } */}
+
         </>
     );
 }
