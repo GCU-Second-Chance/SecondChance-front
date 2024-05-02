@@ -3,13 +3,19 @@ import DogSelectSwiper from './DogSelectSwiper';
 import styled from 'styled-components';
 import DogInfo from './DogInfo';
 
-function DogList({ dogs }) {
+function DogList({dogs},{images}) {
+
+    const imageMap = images.reduce((map, image) => {
+        map[image.ANIMAL_NO] = image;
+        return map;
+    }, {});
+
     return (
         <DogListWrapper>
-            {dogs && dogs.map(dog => (
-                <DogItem key={dog.id}>
-                    <DogSelectSwiper name={dog.NM} age={dog.AGE} breed={dog.BREEDS} sex={dog.SEXDSTN} />
-                    <DogInfo name={dog.NM} age={dog.AGE} breed={dog.BREEDS} sex={dog.SEXDSTN} />
+            {dogs && dogs.map((dog) => (
+                <DogItem key={dog.ANIMAL_NO}>
+                    <DogSelectSwiper key={dog.ANIMAL_NO} name={dog.NM} age={dog.AGE} breed={dog.BREEDS} sex={dog.SEXDSTN} />
+                    <DogInfo name={dog.NM} age={dog.AGE} breed={dog.BREEDS} sex={dog.SEXDSTN} image={imageMap[dog.ANIMAL_NO]} />
                 </DogItem>
             ))}
             <SelectButton>강아지 선택하기!</SelectButton>
