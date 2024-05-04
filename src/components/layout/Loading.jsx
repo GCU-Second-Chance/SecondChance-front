@@ -1,30 +1,25 @@
 import React from 'react';
+import { SyncLoader } from 'react-spinners';
 import styled from 'styled-components';
-import {SyncLoader} from 'react-spinners';
 
 function Loading() {
     return (
-        <>
-            <LoadingWrapper>
+        <LoaderWrapper>
             <SyncLoader
                 color={"#07E964"}
-                loading
-                size={30}
-                speedMultiplier={5}
+                size={20}
+                speedMultiplier={1}
             />
-            </LoadingWrapper>
-            
-        </>
+        </LoaderWrapper>
     );
 }
 
 export default Loading;
 
-const LoadingWrapper = styled.div`
+const LoaderWrapper = styled.div`
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
-    justify-content : center;
-    align-items : center;
-    
-`
+    justify-content: center;
+    align-items: center;
+`;

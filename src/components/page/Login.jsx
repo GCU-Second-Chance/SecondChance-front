@@ -14,7 +14,7 @@ function Login() {
 
     const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
     
-    const handleLogin = ()=>{
+    const handleLogin = (e)=>{
         window.location.href = kakaoURL
     }
 
@@ -81,7 +81,8 @@ const KakaoLogin = styled(Link)`
     align-items : center;
     color : #000000;
     font-size : 20px;
-    font-weight : 700;
+    font-family : pretendard;
+    font-weight : 600;
     text-align : center;
     width: 90%;
     height: 70px;
