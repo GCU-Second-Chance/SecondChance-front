@@ -1,9 +1,37 @@
+@font-face {
+  font-family: 'GangwonEduHyeonokT';
+  src: url('./assets/font/GangwonEduHyeonokT.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'pretendard';
+  src: url('./assets/font/Pretendard-Light.woff2') format('woff2');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'pretendard';
+  src: url('./assets/font/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'pretendard';
+  src: url('./assets/font/Pretendard-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'pretendard';
+  src: url('./assets/font/Pretendard-Bold.woff2') format('woff2');
+  font-weight: 700;
+}
+
 body {
   max-width: 500px;
   margin: 0 auto;
   color: #000;
-  background-color: #f4f4f5;
+  background : #fcfcfc;
   position: relative;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   overflow-x:hidden;
+  font-family: 'GangwonEduHyeonokT';
 }
+
