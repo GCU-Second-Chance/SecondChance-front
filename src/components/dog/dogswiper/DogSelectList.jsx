@@ -47,7 +47,6 @@ function DogSelectList() {
         }
     };
 
-  
     
     useEffect(() => {
         fetchData();
@@ -55,7 +54,10 @@ function DogSelectList() {
 
     return (
         <>
-            <StyledSwiper spaceBetween={50} slidesPerView={1}>
+            <StyledSwiper 
+            spaceBetween={50} 
+            slidesPerView={1}
+            >
 
             {combinedData.map((dog) => (
                 <SwiperSlide key={dog.ANIMAL_NO}>
