@@ -1,11 +1,35 @@
-import React ,{useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import HomeLogo from '../../assets/HomeLogo.svg';
 import { Link } from 'react-router-dom';
 import DogSelectList from '../dog/dogswiper/DogSelectList';
 import KakaoShare from '../handler/KakaoShare';
+import axios from 'axios';
 
 function Home() {
+
+    // 사용자 정보를 기반으로 기부 요청을 보내는 함수
+const donate = async (userId) => {
+    try {
+        // 서버로 기부 요청을 보냄
+        const res = await axios.post(`http://localhost:8080/v1/feature/donation`, { id: userId });
+        console.log('Donation response:', res.data);
+        // 기부 요청에 대한 응답 처리
+        // 필요한 경우 응답에 따른 추가 로직을 작성할 수 있습니다.
+    } catch (error) {
+        console.error('Error donating:', error);
+        // 에러 처리
+    }
+};
+
+// 특정 버튼 클릭 시 기부 요청 함수 호출
+const handleDonate = () => {
+    // 서버로부터 전달받은 데이터에서 사용자 정보 추출
+    const userId = 123123; // 서버로부터 전달받은 사용자 ID
+    // 기부 함수 호출
+    donate(userId);
+};
+
 
     return (
         <HomeBack>
@@ -15,7 +39,7 @@ function Home() {
 
             <StyledWrapper>
             <SharedTitle> Second Chance와 함께<br></br>유기동물을 알려주세요!</SharedTitle>
-            <ShareButton to='/outro' onClick={() => KakaoShare()}>공유하고 1원 후원하기!</ShareButton>
+            <ShareButton to='/outro' onClick={() => {KakaoShare(); handleDonate()}}>공유하고 1원 후원하기!</ShareButton>
             <ReviewButton to="/outro">느낀점만 작성할래요</ReviewButton>
             </StyledWrapper>
             <StyledWrapper2>

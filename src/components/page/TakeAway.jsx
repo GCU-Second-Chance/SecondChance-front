@@ -13,7 +13,7 @@ function TakeAway() {
 
     const handleSubmitTakeaway = () => {
         // 후기를 백엔드로 전송
-        axios.post('http://localhost:8080/vi/feature/takeaway"', { takeaway })
+        axios.post(`http://localhost:8080/v1/feature/takeaway`, { takeaway }, {"Content-Type": 'application/json'})
             .then(response => {
                 console.log('후기 전송 성공');
             })
@@ -39,6 +39,7 @@ export default TakeAway;
 
 const TakeAwayBack = styled.div`
     display : flex;
+    padding-bottom: 20px;
     flex-direction : column;
     align-items : center;
     gap : 34px;

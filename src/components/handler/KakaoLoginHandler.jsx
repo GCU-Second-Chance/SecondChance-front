@@ -10,8 +10,8 @@ const KakaoLoginHandler = () => {
     const kakaoLogin = () => {
         axios.post(`http://localhost:8080/v1/login/kakao-login`, { code })
         .then(response => {
-            // 로그인이 성공했을 때 실행되는 코드
-            navigate(`/home`);
+            console.log(response)
+            navigate('/home');
         })
         .catch(error => {
             console.error('Error fetching data:', error);
