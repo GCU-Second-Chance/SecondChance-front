@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import DogInfo from './DogInfo';
 import DogImage from './DogImage';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination} from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/pagination';
 import DogDetail from '../dogdetail/DogDetail'
 
 function DogSelectList() {
@@ -28,7 +30,6 @@ function DogSelectList() {
         return combined;
     };
 
-    //개 데이터와 이미지 데이터를 가져오는 함수
     const fetchData = async () => {
         try {
             const dogsResponse = await fetch(`http://openapi.seoul.go.kr:8088/${KEY}/json/TbAdpWaitAnimalView/${randomStartIndex}/${randomLastIndex}/`);
@@ -39,7 +40,6 @@ function DogSelectList() {
             const imagesJsonData = await imagesResponse.json();
             const imagesRow = imagesJsonData.TbAdpWaitAnimalPhotoView.row;
     
-            // 개와 이미지 데이터를 합쳐서 state에 설정
             setCombinedData(combineData(dogsRow, imagesRow));
             console.log(imagesRow);
         } catch (error) {
@@ -55,10 +55,12 @@ function DogSelectList() {
     return (
         <>
             <StyledSwiper 
+            modules={[Pagination]}
             spaceBetween={50} 
             slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
             >
-
             {combinedData.map((dog) => (
                 <SwiperSlide key={dog.ANIMAL_NO}>
                     <DogItem>
@@ -78,7 +80,7 @@ export default DogSelectList;
 
 const StyledSwiper = styled(Swiper)`
     margin-top : -30px;
-    padding: 30px 20px;
+    padding: 30px 50px;
     width: 75%;
     height: 100%;
 `;

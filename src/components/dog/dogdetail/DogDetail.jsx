@@ -5,6 +5,9 @@ import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 import downIcon from '../../../assets/icon/triangle_down.jpg';
 import rightIcon from '../../../assets/icon/triangle_right.jpg';
+import DOMPurify from 'dompurify';
+
+
 
 function DogDetail({ dog , images}) {
 
@@ -16,8 +19,8 @@ function DogDetail({ dog , images}) {
 
     const youtubeUrl = dog.INTRCN_MVP_URL.substring(17);
     const pureName = dog.NM.replace(/\(.*\)/g, "");
-    const filteredText = dog.INTRCN_CN.replace(/[^\s가-힣!?]/g, "");
-        
+    const htmlString = dog.INTRCN_CN;
+    const filteredHtmlString = DOMPurify.sanitize(htmlString);
     
     
     return (
@@ -83,7 +86,7 @@ function DogDetail({ dog , images}) {
                     <Icon src={isDetail ? downIcon : rightIcon}/>
                 </MoreDetialButton>
             </SemiTitle>
-            {isDetail ? <StyledTextArea>{filteredText}</StyledTextArea> : ""}
+            {isDetail ? <StyledTextArea dangerouslySetInnerHTML={{ __html: filteredHtmlString }} /> : ""}
 
         </DetailTitleWrapper>
         </>
@@ -126,8 +129,9 @@ const Icon = styled.img`
 
 
 
-const StyledTextArea = styled.span`
-    font-size : 25px;
+const StyledTextArea = styled.div`
+    font-size : 30px;
+    font-weight : 400;
 `;
 
 
