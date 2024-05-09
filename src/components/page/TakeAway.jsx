@@ -17,7 +17,7 @@ function TakeAway() {
     const handleSubmitTakeaway = () => {
         const userId = cookies.userId;
         // 후기를 백엔드로 전송
-        axios.post(`https://port-0-secondchance-back-1cupyg2klvnmgdft.sel5.cloudtype.app/v1/feature/takeaway`, {id: userId, takeaway })
+        axios.post(`https://localhost:8080/v1/feature/takeaway`, {id: userId, takeaway })
             .then(response => {
                 console.log('후기 전송 성공');
             })
