@@ -11,7 +11,7 @@ const KakaoLoginHandler = () => {
     const code = new URL(window.location.href).searchParams.get("code");
 
     const kakaoLogin = () => {
-        axios.post(`https://secondchance-back:8080/v1/login/kakao-login`, { code })
+        axios.post(`https://localhost:8080/v1/login/kakao-login`, { code })
         .then(response => {
             const { id, username } = response.data;
             setCookie('userId', id, { path: '/' });

@@ -14,7 +14,7 @@ function Home() {
 
     const donate = async (userId) => {
         try {
-            const res = await axios.post(`http://localhost:8080/v1/feature/donation`, { id: userId });
+            const res = await axios.post(`https://localhost:8080/v1/feature/donation`, { id: userId });
             console.log('Donation response:', res.data);
         } catch (error) {
             console.error('Error donating:', error);
