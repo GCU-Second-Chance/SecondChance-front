@@ -12,7 +12,7 @@ const KakaoLoginHandler = () => {
 
     const kakaoLogin = () => {
         http://localhost:8080/
-        axios.post(`${import.meta.env.VITE_SERVER_URL}/login?code=${code}`)
+        axios.post(`${import.meta.env.VITE_SERVER_URL}/v1/login/kakao-plogin?code=${code}`)
         .then(response => {
             const { id, username } = response.data;
             setCookie('userId', id, { path: '/' });
