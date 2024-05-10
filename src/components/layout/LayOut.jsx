@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
-function LayOut(props) {
+function LayOut() {
     return (
         <Back> 
             <Outlet/>
