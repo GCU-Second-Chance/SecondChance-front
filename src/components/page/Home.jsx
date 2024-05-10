@@ -14,7 +14,7 @@ function Home() {
 
     const donate = async (userId) => {
         try {
-            const res = await axios.post(`https://localhost:8080/v1/feature/donation`, { id: userId });
+            const res = await axios.post(`https://port-0-secondchance-back-1cupyg2klvnmgdft.sel5.cloudtype.app/v1/feature/donation`, { id: userId });
             console.log('Donation response:', res.data);
         } catch (error) {
             console.error('Error donating:', error);
@@ -30,7 +30,7 @@ function Home() {
         <HomeBack>
             <HeaderImg src={HomeLogo} alt="Home Logo"/>
             <HomeTitle>귀여운 동물들중에 한마리를 선택해주세요!</HomeTitle>
-            <DogSelectList/>
+            {/* <DogSelectList/> */}
 
             <StyledWrapper>
             <SharedTitle> Second Chance와 함께<br></br>유기동물을 알려주세요!</SharedTitle>
