@@ -32,11 +32,11 @@ function DogSelectList() {
 
     const fetchData = async () => {
         try {
-            const dogsResponse = await fetch(`https://cors-anywhere.herokuapp.com/openapi.seoul.go.kr:8088/${KEY}/json/TbAdpWaitAnimalView/${randomStartIndex}/${randomLastIndex}/`);
+            const dogsResponse = await fetch(`https://cors-anywhere.herokuapp.com/http://openapi.seoul.go.kr:8088/${KEY}/json/TbAdpWaitAnimalView/${randomStartIndex}/${randomLastIndex}/`);
             const dogsJsonData = await dogsResponse.json();
             const dogsRow = dogsJsonData.TbAdpWaitAnimalView.row;
     
-            const imagesResponse = await fetch(`https://cors-anywhere.herokuapp.com/openapi.seoul.go.kr:8088/${IMG_KEY}/json/TbAdpWaitAnimalPhotoView/1/333/`);
+            const imagesResponse = await fetch(`https://cors-anywhere.herokuapp.com/http://openapi.seoul.go.kr:8088/${IMG_KEY}/json/TbAdpWaitAnimalPhotoView/1/333/`);
             const imagesJsonData = await imagesResponse.json();
             const imagesRow = imagesJsonData.TbAdpWaitAnimalPhotoView.row;
     
