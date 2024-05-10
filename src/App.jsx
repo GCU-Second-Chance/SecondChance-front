@@ -14,7 +14,7 @@ function App() {
 				<Routes>
           <Route element={<LayOut/>}>
             <Route
-              path="v1/login/kakao-login" //redirect_url
+              path={import.meta.env.VITE_KAKAO_LOGIN_REDIRECT_URI} //redirect_url
               element={<KaKaoLoginHandeler/>}
             />
             <Route path="/" element={<Login/>}></Route>
