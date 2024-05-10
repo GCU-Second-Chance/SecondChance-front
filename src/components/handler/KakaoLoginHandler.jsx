@@ -11,7 +11,8 @@ const KakaoLoginHandler = () => {
     const code = new URL(window.location.href).searchParams.get("code");
 
     const kakaoLogin = () => {
-        axios.get(`${import.meta.env.VITE_SERVER_URL}/v1/login/kakao-login?code=${code}`)
+        axios.post(`${import.meta.env.VITE_SERVER_URL}/v1/login/kakao-login`,
+            null, { params: { code : code} })
         .then(response => {
             const { id, username } = response.data;
             setCookie('userId', id, { path: '/' });
