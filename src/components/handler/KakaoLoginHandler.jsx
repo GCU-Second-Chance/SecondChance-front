@@ -34,4 +34,4 @@ const KakaoLoginHandler = () => {
     );
 };
 
-export default ;
+export default KakaoLoginHandler;
