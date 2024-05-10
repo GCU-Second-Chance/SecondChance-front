@@ -11,7 +11,7 @@ const KakaoLoginHandler = () => {
     const code = new URL(window.location.href).searchParams.get("code");
 
     const kakaoLogin = () => {
-        axios({url:`${import.meta.env.VITE_SERVER_URL}/v1/login/kakao-login` , method:'post', data: { code : code} })
+        axios({url:`https://port-0-secondchance-back-test-1cupyg2klvnmgdft.sel5.cloudtype.app/v1/login/kakao-login` , method:'post', data: { code : code} })
             .then(response => {
             const { id, username } = response.data;
             setCookie('userId', id, { path: '/' });
