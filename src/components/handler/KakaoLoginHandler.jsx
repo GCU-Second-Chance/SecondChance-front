@@ -15,7 +15,7 @@ const KakaoLoginHandler = () => {
                 const { id, username } = response.data;
                 setCookie('userId', id, { path: '/' });
                 setCookie('userName', username, { path: '/' });
-                navigate(`/home?code=${code}`);
+                navigate('/home');
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
