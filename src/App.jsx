@@ -14,7 +14,7 @@ function App() {
 				<Routes>
           <Route element={<LayOut/>}>
             <Route
-              path="/v1/login/kakao-login" //redirect_url
+              path="kakao/login" //redirect_url
               element={<KaKaoLoginHandeler/>}
             />
             <Route path="/" element={<Login/>}></Route>
