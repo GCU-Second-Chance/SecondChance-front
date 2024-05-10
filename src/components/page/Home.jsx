@@ -30,7 +30,7 @@ function Home() {
         <HomeBack>
             <HeaderImg src={HomeLogo} alt="Home Logo"/>
             <HomeTitle>귀여운 동물들중에 한마리를 선택해주세요!</HomeTitle>
-            {/* <DogSelectList/> */}
+            <DogSelectList/>
 
             <StyledWrapper>
             <SharedTitle> Second Chance와 함께<br></br>유기동물을 알려주세요!</SharedTitle>
