@@ -1,5 +1,4 @@
 import './App.css'
-
 import Login from './components/page/Login'
 import Home from './components/page/Home'
 import Outro from './components/page/TakeAway'
