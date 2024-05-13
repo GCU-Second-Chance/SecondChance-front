@@ -8,13 +8,15 @@ import { Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
+    <>
     <Switch>
-      <Route path="/kakao/login" component={KaKaoLoginHandeler} />
+      <Route path="/kakao/login?code=:code" component={KaKaoLoginHandeler} />
       <Route path="/home" component={Home} />
       <Route path="/outro" component={Outro} />
       <Route path="/home/:id" component={DogDetail} />
-      <Route path="/" component={Login} />
+      <Route exact path="/" component={Login} />
   </Switch>
+  </>
   )
 }
 
