@@ -12,11 +12,11 @@ function App() {
     <Router> {/* Router로 감싸기 */}
       <LayOut>
         <Switch>
-          <Route exact path="/" component={<Login/>} />
-          <Route path="/kakao/login" component={<KaKaoLoginHandeler/>} />
-          <Route path="/home" component={<Home/>} />
-          <Route path="/outro" component={<Outro/>} />
-          <Route path="/home/:id" component={<DogDetail/>} />
+          <Route exact path="/" component={Login} />
+          <Route path="/kakao/login" component={KaKaoLoginHandeler} />
+          <Route path="/home" component={Home} />
+          <Route path="/outro" component={Outro} />
+          <Route path="/home/:id" component={DogDetail} />
         </Switch>
       </LayOut>
     </Router>
