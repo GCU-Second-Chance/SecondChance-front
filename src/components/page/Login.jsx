@@ -25,7 +25,7 @@ function Login() {
         <TitleImg src={SCtitle}/>
         <SemiTitleImg src={SCsemititle}/>
         <BottomBar>
-            <KakaoLogin onClick={()=>handleLogin()}>
+            <KakaoLogin onClick={handleLogin}>
             <KakaoLogo src={kakaologo}/>
             카카오로 로그인하기
             </KakaoLogin>
