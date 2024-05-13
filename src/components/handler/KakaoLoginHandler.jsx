@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useCookies } from 'react-cookie';
 import axios from "axios";
 import Loading from "../layout/Loading";
@@ -15,7 +15,7 @@ const KakaoLoginHandler = () => {
                 const { id, username } = response.data;
                 setCookie('userId', id, { path: '/' });
                 setCookie('userName', username, { path: '/' });
-                history('/home');
+                history.push('/home');
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
