@@ -3,7 +3,7 @@ import SCLogo from '../../assets/SCLogo.svg';
 import SCtitle from '../../assets/SCLogoTitle.svg'
 import SCsemititle from '../../assets/SCsemititle.svg'
 import kakaologo from '../../assets/kakaologo.svg';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -11,11 +11,11 @@ function Login() {
 
     const REST_API_KEY = import.meta.env.VITE_KAKAO_LOGIN_API_KEY;
     const REDIRECT_URI = import.meta.env.VITE_KAKAO_LOGIN_REDIRECT_URI;
-    const history = useHistory();
+
     const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
     
     const handleLogin = (e)=>{
-        history.push(kakaoURL)
+        window.location.href = kakaoURL
     }
 
 
