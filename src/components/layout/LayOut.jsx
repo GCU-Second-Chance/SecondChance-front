@@ -1,16 +1,16 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
-function LayOut() {
+function LayOut({ children }) {
     return (
         <Back> 
-            <Outlet/>
+            {children}
         </Back>
     );
 }
 
 export default LayOut;
+
 
 const Back = styled.div`
     width: 100%;
