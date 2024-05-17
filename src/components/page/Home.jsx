@@ -8,21 +8,18 @@ import KakaoShare from '../handler/KakaoShare';
 import axios from 'axios';
 
 function Home() {
-
-    const [cookies, setCookie] = useCookies(['userId', 'userName']);
-    const userId = cookies.userId;
-
-    const donate = async (userId) => {
+    const donate = async () => {
         try {
-            const res = await axios.post(`${import.meta.env.VITE_SERVER_URL}/v1/feature/donation`, { id: userId });
+            const res = await axios.get(`https://api.2ndchance.site//v1/feature/donation`, {
+                withCredentials: true
+            });
             console.log('Donation response:', res.data);
         } catch (error) {
             console.error('Error donating:', error);
         }
     };
-
     const handleDonate = () => {
-        donate(userId);
+        donate();
     };
 
 

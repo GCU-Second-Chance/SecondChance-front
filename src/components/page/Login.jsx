@@ -9,34 +9,28 @@ import { Link } from 'react-router-dom';
 
 function Login() {
 
-    const REST_API_KEY = import.meta.env.VITE_KAKAO_LOGIN_API_KEY;
-    const REDIRECT_URI = import.meta.env.VITE_KAKAO_LOGIN_REDIRECT_URI;
+    const handleLogin = () => {
 
-    const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
-    
-    const handleLogin = (e)=>{
-        window.location.href = kakaoURL
+        window.location.href = "https://2ndchance.site/oauth2/authorization/kakao";
     }
 
-
+            
     return (
-    <LoginBack>
-        <StyledLogo src={SCLogo}/>
-        <TitleImg src={SCtitle}/>
-        <SemiTitleImg src={SCsemititle}/>
-        <BottomBar>
-            <KakaoLogin onClick={()=> handleLogin()}>
-            <KakaoLogo src={kakaologo}/>
-            카카오로 로그인하기
-            </KakaoLogin>
-        </BottomBar>    
-    </LoginBack>
-    );
-}
-
-export default Login;
-
-
+        <LoginBack>
+            <StyledLogo src={SCLogo}/>
+            <TitleImg src={SCtitle}/>
+            <SemiTitleImg src={SCsemititle}/>
+            <BottomBar>
+                <KakaoLogin onClick={()=>handleLogin()}>
+                <KakaoLogo src={kakaologo}/>
+                카카오로 로그인하기
+                </KakaoLogin>
+            </BottomBar>    
+        </LoginBack>
+        );
+    }
+    
+    export default Login;
 
 const LoginBack = styled.div`
     position : relative;
