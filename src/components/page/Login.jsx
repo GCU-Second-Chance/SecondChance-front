@@ -11,7 +11,7 @@ function Login() {
 
     const handleLogin = () => {
 
-        window.location.href = "https://2ndchance.site/oauth2/authorization/kakao";
+        window.location.href = "https://api.2ndchance.site/oauth2/authorization/kakao";
     }
 
             
