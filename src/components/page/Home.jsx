@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import HomeLogo from '../../assets/HomeLogo.svg';
 import { Link } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
 import DogSelectList from '../dog/dogswiper/DogSelectList';
 import KakaoShare from '../handler/KakaoShare';
 import axios from 'axios';
