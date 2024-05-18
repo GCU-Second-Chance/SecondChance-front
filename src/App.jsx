@@ -9,7 +9,7 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/kakao/login" element={<KakaoLoginHandler/>} />
+      {/* <Route path="/kakao/login" element={<KakaoLoginHandler/>} /> */}
       <Route path="/home" element={<Home/>} />
       <Route path="/outro" element={<Outro/>} />
       <Route exact path="/" element={<Login/>} />

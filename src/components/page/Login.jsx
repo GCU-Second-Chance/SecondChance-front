@@ -3,15 +3,15 @@ import SCLogo from '../../assets/SCLogo.svg';
 import SCtitle from '../../assets/SCLogoTitle.svg'
 import SCsemititle from '../../assets/SCsemititle.svg'
 import kakaologo from '../../assets/kakaologo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 function Login() {
-
+    
+    const naviage = useNavigate();
     const handleLogin = () => {
-
-        window.location.href = "https://api.2ndchance.site/oauth2/authorization/kakao";
+        naviage("https://api.2ndchance.site/oauth2/authorization/kakao");
     }
 
             
