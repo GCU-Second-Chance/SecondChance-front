@@ -9,7 +9,7 @@ import axios from 'axios';
 function Home() {
     const donate = async () => {
         try {
-            const res = await axios.get(`https://api.2ndchance.site//v1/feature/donation`, {
+            const res = await axios.get(`https://port-0-secondchance-back-test2-1cupyg2klvnmgdft.sel5.cloudtype.app/v1/feature/donation`, {
                 withCredentials: true
             });
             console.log('Donation response:', res.data);
