@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import HomeLogo from '../../assets/HomeLogo.svg';
 import DogSelectList from '../dog/dogswiper/DogSelectList';
-import KakaoShare from '../handler/KakaoShare';
+import { SyncLoader } from 'react-spinners';
+import { dogs } from '../../assets/data/dogs';
+import { dogsimges } from '../../assets/data/dogsimges';
 
 
 function Home() {
@@ -18,11 +20,11 @@ function Home() {
         <HomeBack>
             <HeaderImg src={HomeLogo} alt="Home Logo"/>
             <HomeTitle>귀여운 동물들중에 한마리를 선택해주세요!</HomeTitle>
-            <DogSelectList/>
+            <DogSelectList dogs={dogs.DATA} dogsimges={dogsimges.DATA}/>
 
             <StyledWrapper>
             <SharedTitle> Second Chance와 함께<br></br>유기동물을 알려주세요!</SharedTitle>
-            <ShareButton onClick={() => { toGoogleForm(); }}>공유하고 1원 후원하기!</ShareButton>
+            <ShareButton onClick={() => toGoogleForm()}>공유하고 1원 후원하기!</ShareButton>
             <ReviewButton onClick={()=> toGoogleForm()}>느낀점만 작성할래요</ReviewButton>
             </StyledWrapper>
             <StyledWrapper2>

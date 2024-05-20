@@ -1,6 +1,5 @@
 import React,{useEffect, useState} from 'react';
 import styled from 'styled-components';
-// import YouTube from 'react-youtube';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 import downIcon from '../../../assets/icon/triangle_down.jpg';
