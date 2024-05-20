@@ -4,6 +4,7 @@ import DogInfo from './DogInfo';
 import DogImage from './DogImage';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination} from 'swiper/modules';
+import { SyncLoader } from 'react-spinners';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import DogDetail from '../dogdetail/DogDetail'
@@ -16,6 +17,9 @@ function DogSelectList() {
     const [combinedData, setCombinedData] = useState([]);
     const [selectedDog, setSelectedDog] = useState(null);
     const [selectedDogImg, setSelectedDogImg] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    
 
     const combineData = (dogs, images) => {
         const combined = dogs.map(dog => {
@@ -41,6 +45,7 @@ function DogSelectList() {
             const imagesRow = imagesJsonData.TbAdpWaitAnimalPhotoView.row;
     
             setCombinedData(combineData(dogsRow, imagesRow));
+             setLoading(false);
             console.log(imagesRow);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -54,7 +59,11 @@ function DogSelectList() {
 
     return (
         <>
-            <StyledSwiper 
+           { loading ?  <SyncLoader
+                color={"#07E964"}
+                size={20}
+                speedMultiplier={1}
+            /> : <StyledSwiper 
             modules={[Pagination]}
             spaceBetween={50} 
             slidesPerView={1}
@@ -70,7 +79,7 @@ function DogSelectList() {
                     <SelectButton onClick={() => {setSelectedDog(dog), setSelectedDogImg(dog.images)}}>선택하기!</SelectButton>
                 </SwiperSlide>
             ))}
-            </StyledSwiper>
+            </StyledSwiper>}
             {selectedDog && <DogDetail dog={selectedDog} images={selectedDogImg} />}
         </>
     );
