@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import styled from 'styled-components';
 import HomeLogo from '../../assets/HomeLogo.svg';
 import { Link } from 'react-router-dom';
@@ -7,11 +7,16 @@ import KakaoShare from '../handler/KakaoShare';
 import axios from 'axios';
 
 function Home() {
+
+    const [loading, setLoading] = useState(true);
+
+    
     const donate = async () => {
         try {
             const res = await axios.get(`https://port-0-secondchance-back-rm6l2llvw8fnyw.sel5.cloudtype.app/v1/feature/donation`, {
                 withCredentials: true
             });
+            setLoading(false);
             console.log('Donation response:', res.data);
         } catch (error) {
             console.error('Error donating:', error);
@@ -24,9 +29,13 @@ function Home() {
 
     return (
         <HomeBack>
-            <HeaderImg src={HomeLogo} alt="Home Logo"/>
+           <HeaderImg src={HomeLogo} alt="Home Logo"/>
             <HomeTitle>귀여운 동물들중에 한마리를 선택해주세요!</HomeTitle>
-            <DogSelectList/>
+            { loading ?  <SyncLoader
+                color={"#07E964"}
+                size={20}
+                speedMultiplier={1}
+            /> : <DogSelectList/> }
 
             <StyledWrapper>
             <SharedTitle> Second Chance와 함께<br></br>유기동물을 알려주세요!</SharedTitle>
