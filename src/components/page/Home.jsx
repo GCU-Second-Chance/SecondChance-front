@@ -4,6 +4,7 @@ import HomeLogo from '../../assets/HomeLogo.svg';
 import { Link } from 'react-router-dom';
 import DogSelectList from '../dog/dogswiper/DogSelectList';
 import KakaoShare from '../handler/KakaoShare';
+import { SyncLoader } from 'react-spinners';
 import axios from 'axios';
 
 function Home() {
