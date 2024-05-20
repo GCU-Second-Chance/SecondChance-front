@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 function Login() {
     
     const handleLogin = () => {
-        window.location.href = "https://port-0-secondchance-back-test2-1cupyg2klvnmgdft.sel5.cloudtype.app/oauth2/authorization/kakao";
+        window.location.href = "https://port-0-secondchance-back-rm6l2llvw8fnyw.sel5.cloudtype.app/oauth2/authorization/kakao";
     }
 
             
