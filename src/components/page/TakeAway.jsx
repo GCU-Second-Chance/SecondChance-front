@@ -15,7 +15,7 @@ function TakeAway() {
     };
 
     const handleSubmitTakeaway = () => {
-        axios.post(`https://port-0-secondchance-back-test2-1cupyg2klvnmgdft.sel5.cloudtype.app/v1/feature/takeaway`,{takeaway}, {
+        axios.post(`https://port-0-secondchance-back-rm6l2llvw8fnyw.sel5.cloudtype.app/v1/feature/takeaway`,{takeaway}, {
             withCredentials: true,
             'Authorization': `Bearer ${Authorization}`
         })
