@@ -1,4 +1,4 @@
-export const dogsimges = {
+export const dogsimgesdata = {
         "DATA" : [
         {"photo_no":2,"photo_knd":"THUMB","photo_url":"animal.seoul.go.kr/comm/getImage?srvcId=MEDIA&upperNo=3361&fileTy=ADOPTTHUMB&fileNo=2&thumbTy=L","animal_no":3361},
         {"photo_no":9,"photo_knd":"IMG","photo_url":"animal.seoul.go.kr/comm/getImage?srvcId=MEDIA&upperNo=3361&fileTy=ADOPTIMG&fileNo=9&thumbTy=L","animal_no":3361},

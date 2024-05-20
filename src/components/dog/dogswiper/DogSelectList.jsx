@@ -7,31 +7,40 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import DogDetail from '../dogdetail/DogDetail';
+import { dogsdata } from '../../data/dogsdata';
+import { dogsimgesdata } from '../../data/dogsimgesdata';
 
-function DogSelectList({ dogs, dogsimges }) {
+
+function DogSelectList() {
     const [combinedData, setCombinedData] = useState([]);
     const [selectedDog, setSelectedDog] = useState(null);
     const [selectedDogImg, setSelectedDogImg] = useState(null);
 
+    const combineData = (dogs, images) => {
+        const combined = dogs && dogs.map(dog => {
+            // 해당 개의 이미지 찾기
+            const dogImages =  images.filter(img => img.animal_no === dog.animal_no);
+            // 개와 이미지 데이터를 합쳐서 객체로 반환
+            return {
+                ...dog,
+                images: dogImages ? dogImages : [] // 해당하는 이미지가 있으면 배열로 반환, 없으면 빈 배열 반환
+            };
+        });
+        return combined;
+    };
+    
     useEffect(() => {
         const fetchData = () => {
-            // 1에서 30 사이의 랜덤한 정수를 생성하여 시작 인덱스로 사용
-            const start = Math.floor(Math.random() * 30) + 1;
-            const randomDogs = dogs.slice(start, start + 3); // 3개의 임의의 개 데이터 선택
-            const randomDogImages = dogsimges.slice(start, start + 3); // 선택된 개에 해당하는 이미지 선택
-
-            // 선택된 데이터 결합
-            const combined = randomDogs.map((dog, index) => ({
-                ...dog,
-                images: randomDogImages[index] // 선택된 개에 해당하는 이미지 배열 할당
-            }));
-
-            setCombinedData(combined);
+            // 1에서 26 사이의 랜덤한 정수를 생성하여 시작 인덱스로 사용
+            const start = Math.floor(Math.random() * 25) + 1;
+            const randomDogs = dogsdata.DATA.slice(start, start + 3);
+            setCombinedData(combineData(randomDogs,dogsimgesdata.DATA));
+            console.log(combinedData);
         };
-
+    
         fetchData();
-    }, [dogs, dogsimges]);
-
+    }, []);
+    
     return (
         <>
             <StyledSwiper
@@ -41,9 +50,9 @@ function DogSelectList({ dogs, dogsimges }) {
                 navigation
                 pagination={{ clickable: true }}
             >
-                {combinedData.map((dog) => (
-                    <SwiperSlide key={dog.ANIMAL_NO}>
-                        <DogItem key={dog.ANIMAL_NO}>
+                {combinedData && combinedData.map((dog) => (
+                    <SwiperSlide key={dog.animal_no}>
+                        <DogItem key={dog.animal_no}>
                             <DogImage images={dog.images} />
                             <DogInfo dog={dog} />
                         </DogItem>

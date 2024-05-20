@@ -1,4 +1,4 @@
-export const dogs = {
+export const dogsdata = {
         "DATA":[
             {
                 "tmpr_prtc_cn":"<p><br></p>",

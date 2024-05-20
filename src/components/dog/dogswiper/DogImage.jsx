@@ -2,19 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 
 function DogImage({images}) {
-
-    const filteredImages = images && images.length > 0 ? [images[5]] : [];
+    // images가 존재하고, 길이가 1 이상일 때만 filteredImages를 정의하고 그렇지 않으면 빈 배열로 설정
+    const filteredImages = images && images.length > 0 ? [images[0]] : [];
 
     return (
         <DogImageWrapper>
             {filteredImages.map((img, index) => (
-                <DogImageItem key={`dog_${img.ANIMAL_NO}_${index}`}>
-                    <Img src={`https://${img.PHOTO_URL}`} alt={`Dog ${index + 1}`} />
+                <DogImageItem key={`dog_${img.animal_no}_${index}`}>
+                    <Img src={`https://${img.photo_url}`} alt={`Dog ${index + 1}`} />
                 </DogImageItem>
             ))}
         </DogImageWrapper>
     );
 }
+
 
 export default DogImage;
 
