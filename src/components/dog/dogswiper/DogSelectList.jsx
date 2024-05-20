@@ -7,8 +7,8 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import DogDetail from '../dogdetail/DogDetail';
-import { dogsdata } from '../../../dogsdata';
-import { dogsimgesdata } from '../../../dogsimgesdata';
+import { dogsdata } from '../../data/dogsdata';
+import { dogsimgesdata } from '../../data/dogsimgesdata';
 
 
 function DogSelectList() {
