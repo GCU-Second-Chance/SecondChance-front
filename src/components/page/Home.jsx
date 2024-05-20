@@ -22,7 +22,7 @@ function Home() {
 
             <StyledWrapper>
             <SharedTitle> Second Chance와 함께<br></br>유기동물을 알려주세요!</SharedTitle>
-            <ShareButton onClick={() => {KakaoShare(); toGoogleForm(); }}>공유하고 1원 후원하기!</ShareButton>
+            <ShareButton onClick={() => KakaoShare()}>공유하고 1원 후원하기!</ShareButton>
             <ReviewButton onClick={()=> toGoogleForm()}>느낀점만 작성할래요</ReviewButton>
             </StyledWrapper>
             <StyledWrapper2>
