@@ -1,11 +1,9 @@
-import React,{useEffect, useState} from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components';
-// import YouTube from 'react-youtube';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 import downIcon from '../../../assets/icon/triangle_down.jpg';
 import rightIcon from '../../../assets/icon/triangle_right.jpg';
-import DOMPurify from 'dompurify';
 
 
 
@@ -17,11 +15,9 @@ function DogDetail({ dog , images}) {
         setDetail(isDetail ? false : true);
     }
 
-    const youtubeUrl = dog.INTRCN_MVP_URL.substring(17);
-    const pureName = dog.NM.replace(/\(.*\)/g, "");
-    const htmlString = dog.INTRCN_CN;
-    const filteredHtmlString = DOMPurify.sanitize(htmlString);
-    
+    const youtubeUrl = dog.intrcn_mvp_url.substring(17);
+    const pureName = dog.nm.replace(/\(.*\)/g, "");
+    const detailstory = dog.intrcn_cn.split('\n').map((line) => <p>{line}</p>)
     
     return (
         <>
@@ -47,14 +43,14 @@ function DogDetail({ dog , images}) {
         </DetailTitleWrapper>
             {images.map((img, index) => (
                 <DetailContainer>
-                <DogImageItem key={`dog_${img.ANIMAL_NO}_${index}`}>
-                    <Img src={`https://${img.PHOTO_URL}`} alt={`Dog ${index + 1}`} />
+                <DogImageItem key={`dog_${img.animal_no}_${index}`}>
+                    <Img src={`https://${img.photo_url}`} alt={`Dog ${index + 1}`} />
                 </DogImageItem>
                 </DetailContainer>
             ))}
         <DetailTitleWrapper>
             <SemiTitle>
-            우리 <BrandColor>{pureName}</BrandColor>은/는  <BrandColor>{dog.ENTRNC_DATE}</BrandColor>에
+            우리 <BrandColor>{pureName}</BrandColor>은/는  <BrandColor>{dog.entrnc_date}</BrandColor>에
             </SemiTitle>
             <SemiTitle>
             입소했습니다.
@@ -86,7 +82,7 @@ function DogDetail({ dog , images}) {
                     <Icon src={isDetail ? downIcon : rightIcon}/>
                 </MoreDetialButton>
             </SemiTitle>
-            {isDetail ? <StyledTextArea dangerouslySetInnerHTML={{ __html: filteredHtmlString }} /> : ""}
+            {isDetail ? <StyledTextArea>{detailstory}</StyledTextArea> : ""}
 
         </DetailTitleWrapper>
         </>
