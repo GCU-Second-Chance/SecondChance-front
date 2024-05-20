@@ -1,18 +1,14 @@
 import './App.css'
-import Login from './components/page/Login'
 import Home from './components/page/Home'
-import Outro from './components/page/TakeAway'
-import KakaoLoginHandler from './components/handler/KakaoLoginHandler'
 import { Routes, Route } from 'react-router-dom'; 
+import Onboarding from './components/page/Onboarding';
 
 function App() {
   return (
     <>
     <Routes>
-      {/* <Route path="/kakao/login" element={<KakaoLoginHandler/>} /> */}
       <Route path="/home" element={<Home/>} />
-      <Route path="/outro" element={<Outro/>} />
-      <Route exact path="/" element={<Login/>} />
+      <Route exact path="/" element={<Onboarding/>} />
     </Routes>
   </>
   )

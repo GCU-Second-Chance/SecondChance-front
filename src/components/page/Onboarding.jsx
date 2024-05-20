@@ -2,34 +2,28 @@ import styled from 'styled-components';
 import SCLogo from '../../assets/SCLogo.svg';
 import SCtitle from '../../assets/SCLogoTitle.svg'
 import SCsemititle from '../../assets/SCsemititle.svg'
-import kakaologo from '../../assets/kakaologo.svg';
 import { Link } from 'react-router-dom';
 
 
 
-function Login() {
+function Onboarding() {
     
-    const handleLogin = () => {
-        window.location.href = "https://port-0-secondchance-back-test2-1cupyg2klvnmgdft.sel5.cloudtype.app/oauth2/authorization/kakao";
-    }
-
             
     return (
         <LoginBack>
             <StyledLogo src={SCLogo}/>
             <TitleImg src={SCtitle}/>
             <SemiTitleImg src={SCsemititle}/>
-            <BottomBar>
-                <KakaoLogin onClick={()=>handleLogin()}>
-                <KakaoLogo src={kakaologo}/>
-                카카오로 로그인하기
-                </KakaoLogin>
-            </BottomBar>    
+            
+                <StartButton to='/home'>
+                귀여운 강아지 보러가기!
+                </StartButton>
+            
         </LoginBack>
         );
     }
     
-    export default Login;
+    export default Onboarding;
 
 const LoginBack = styled.div`
     position : relative;
@@ -37,7 +31,8 @@ const LoginBack = styled.div`
     flex-direction : column;
     align-items : center;
     gap : 34px;
-    background: linear-gradient(45deg, #b7f0cd,#20c85f );
+    // background: linear-gradient(45deg, #b7f0cd,#20c85f );
+    background : #20C85F;
     color : #FFFFFF;
     height: 100vh;
 `;
@@ -67,24 +62,21 @@ const BottomBar =  styled.div`
     border-top-right-radius: 20px;
 `;
 
-const KakaoLogin = styled(Link)`
+const StartButton  = styled(Link)`
     display : flex;
     justify-content: center;
+    margin-top : 15%;
     gap : 20px;
     align-items : center;
-    color : #000000;
+    color : #20C85F;
     font-size : 20px;
     font-family : pretendard;
     font-weight : 600;
     text-align : center;
-    width: 90%;
+    width: 80%;
     height: 70px;
     border-radius : 20px;
-    background: #FEE500;
+    background: #FFFFFF;
     text-decoration : none;
 `;
 
-const KakaoLogo = styled.img`
-    width : 28px;
-    height : 28px;
-`;

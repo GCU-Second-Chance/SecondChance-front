@@ -1,25 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import HomeLogo from '../../assets/HomeLogo.svg';
-import { Link } from 'react-router-dom';
 import DogSelectList from '../dog/dogswiper/DogSelectList';
 import KakaoShare from '../handler/KakaoShare';
-import axios from 'axios';
+
 
 function Home() {
-    const donate = async () => {
-        try {
-            const res = await axios.get(`https://port-0-secondchance-back-test2-1cupyg2klvnmgdft.sel5.cloudtype.app/v1/feature/donation`, {
-                withCredentials: true
-            });
-            console.log('Donation response:', res.data);
-        } catch (error) {
-            console.error('Error donating:', error);
-        }
-    };
-    const handleDonate = () => {
-        donate();
-    };
+
+    
+    const formUrl = 'https://forms.gle/yHepMpofnbfQz7bQ7';
+    const toGoogleForm = () => {
+        window.location.href = formUrl;
+    }
 
 
     return (
@@ -30,8 +22,8 @@ function Home() {
 
             <StyledWrapper>
             <SharedTitle> Second Chance와 함께<br></br>유기동물을 알려주세요!</SharedTitle>
-            <ShareButton to='/outro' onClick={() => {KakaoShare(); handleDonate()}}>공유하고 1원 후원하기!</ShareButton>
-            <ReviewButton to="/outro">느낀점만 작성할래요</ReviewButton>
+            <ShareButton onClick={() => {KakaoShare(); toGoogleForm(); }}>공유하고 1원 후원하기!</ShareButton>
+            <ReviewButton onClick={()=> toGoogleForm()}>느낀점만 작성할래요</ReviewButton>
             </StyledWrapper>
             <StyledWrapper2>
                 <Text>경기도 성남시 수정구 복정동 산55-12<br></br><br></br>
@@ -122,12 +114,11 @@ const SharedTitle = styled.div`
 
 
 
-const ReviewButton = styled(Link)`
+const ReviewButton = styled.div`
     color: #FFFFFF;
-    text-decoration: none;
 `;
 
-const ShareButton = styled(Link)`
+const ShareButton = styled.div`
     width: 80%;
     height: 61px;
     display: flex;
@@ -140,5 +131,4 @@ const ShareButton = styled(Link)`
 
     background : #FFFFFF;
     border-radius: 8px;
-    text-decoration: none;
 `;
