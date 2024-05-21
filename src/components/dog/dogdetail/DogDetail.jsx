@@ -24,14 +24,12 @@ function DogDetail({ dog, images, setModal }) {
                 <Title>
                     감사합니다!
                 </Title>
+                <br/>
                 <SemiTitle>
-                    우리 <BrandColor>{pureName}</BrandColor>은/는 마음에 상처가 있습니다.
+                    새로운 주인을 기다리는 <BrandColor>{pureName}</BrandColor>에게
                 </SemiTitle>
                 <SemiTitle>
-                    하지만 언제나 새로운 주인을 기다리고 있어요.
-                </SemiTitle>
-                <SemiTitle>
-                    여러분의 따뜻한 마음으로 <BrandColor>{pureName}</BrandColor>에게
+                    여러분의 따뜻한 마음으로
                 </SemiTitle>
                 <SemiTitle2>
                     두번째 기회를 건네주세요!
