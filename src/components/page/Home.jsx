@@ -26,14 +26,15 @@ function Home() {
 
     return (
         <HomeBack>
-           <HeaderImg src={HomeLogo} alt="Home Logo"/>
+        <HeaderImg src={HomeLogo} alt="Home Logo"/>
             <HomeTitle>귀여운 동물들중에 한마리를 선택해주세요!</HomeTitle>
-             <DogSelectList/> 
+
+            <DogSelectList/> 
 
             <StyledWrapper>
-            <SharedTitle> Second Chance와 함께<br></br>유기동물을 알려주세요!</SharedTitle>
-            <ShareButton to='/outro' onClick={() => {KakaoShare(); handleDonate()}}>공유하고 1원 후원하기!</ShareButton>
-            <ReviewButton to="/outro">느낀점만 작성할래요</ReviewButton>
+                <SharedTitle> Second Chance와 함께<br></br>유기동물들을 소개해주세요!</SharedTitle>
+                <ShareButton to='/outro' onClick={() => {KakaoShare(); handleDonate();}}>공유하고 1원 후원하기!</ShareButton>
+                <ReviewButton to="/outro">느낀점만 작성할래요</ReviewButton>
             </StyledWrapper>
             <StyledWrapper2>
                 <Text>경기도 성남시 수정구 복정동 산55-12<br></br><br></br>
@@ -123,7 +124,6 @@ const SharedTitle = styled.div`
 `;
 
 
-
 const ReviewButton = styled(Link)`
     color: #FFFFFF;
     text-decoration: none;
@@ -144,3 +144,5 @@ const ShareButton = styled(Link)`
     border-radius: 8px;
     text-decoration: none;
 `;
+
+

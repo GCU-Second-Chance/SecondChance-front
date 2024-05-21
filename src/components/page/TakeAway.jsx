@@ -11,6 +11,7 @@ function TakeAway() {
     const [modal, setModal] = useState(false);
     const Authorization = useCookies('Authorization');
 
+    
     const handleTakeawayChange = (e) => {
         setTakeaway(e.target.value);
     };
@@ -30,6 +31,12 @@ function TakeAway() {
             });
     };
 
+    const closeModal = () => {
+        setModal(false);
+        window.location.href = "https://web-secondchance-front-rm6l2llvw8fnyw.sel5.cloudtype.app";
+    
+    }
+
 
     
 
@@ -42,8 +49,8 @@ function TakeAway() {
             <StyledModal>
                 <br/>
             후기 전송 완료 되었습니다!<br/>
-            참여해주셔서 감사합니다!
-            <ExitButton onClick={()=>setModal(false)}>확인</ExitButton>
+            참여해주셔서 감사합니다! 
+            <ExitButton onClick={()=>closeModal()}>확인</ExitButton>
             </StyledModal>
         }
             

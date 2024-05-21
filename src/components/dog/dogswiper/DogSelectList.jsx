@@ -13,8 +13,11 @@ import { dogsimgesdata } from '../../data/dogsimgesdata';
 
 function DogSelectList() {
     const [combinedData, setCombinedData] = useState([]);
+    const [modal, setModal] =  useState(false);
     const [selectedDog, setSelectedDog] = useState(null);
     const [selectedDogImg, setSelectedDogImg] = useState(null);
+
+
 
     const combineData = (dogs, images) => {
         const combined = dogs && dogs.map(dog => {
@@ -52,17 +55,21 @@ function DogSelectList() {
             >
                 {combinedData && combinedData.map((dog) => (
                     <SwiperSlide key={dog.animal_no}>
-                        <DogItem key={dog.animal_no}>
+                        <DogItem
+                        onClick={() => { setSelectedDog(dog); setSelectedDogImg(dog.images); setModal(true) }}
+                            key={dog.animal_no}>
                             <DogImage images={dog.images} />
                             <DogInfo dog={dog} />
                         </DogItem>
-                        <SelectButton onClick={() => { setSelectedDog(dog); setSelectedDogImg(dog.images); }}>
-                            선택하기!
-                        </SelectButton>
                     </SwiperSlide>
                 ))}
             </StyledSwiper>
-            {selectedDog && <DogDetail dog={selectedDog} images={selectedDogImg} />}
+            { modal &&  <StyledModalWrapper/>}
+            { modal &&  selectedDog &&
+                <StyledModal>
+                    <DogDetail dog={selectedDog} images={selectedDogImg} setModal={setModal}/>
+                </StyledModal>
+            }
         </>
     );
 }
@@ -76,7 +83,38 @@ const StyledSwiper = styled(Swiper)`
     height: 100%;
 `;
 
+const StyledModalWrapper = styled.div`
+    position : absolute;
+    width : 100%;
+    height : 100%;
+    background-color : #000000;
+    opacity: 0.3;
+    z-index : 1;
+`;
+
+const StyledModal = styled.div`
+    top :5%;
+    position : absolute;
+    display: flex;
+    flex-direction : column;
+    gap : 1.25em;
+    padding-top : 8%;
+    padding-bottom : 8%;
+    align-items : center;
+    overflow: scroll;
+
+    width : 80%;
+    height : 80%;
+    font-size : 1.5em;
+    background: #F3F4F5;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    z-index:2;
+`;
+
+
 const DogItem = styled.div`
+    bottom : 0;
     width: 100%;
     height: 100%;
     background: #F3F4F5;
@@ -84,18 +122,3 @@ const DogItem = styled.div`
     border-radius: 16px;
 `;
 
-const SelectButton = styled.button`
-    margin-top: 15px;
-    margin-left: 25%;
-    width: 50%;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
-    background: #20C85F;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-`;
