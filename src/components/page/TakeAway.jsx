@@ -8,6 +8,7 @@ import axios from 'axios'; // axios 라이브러리 추가
 
 function TakeAway() {
     const [takeaway, setTakeaway] = useState('');
+    const [modal, setModal] = useState(false);
     const Authorization = useCookies('Authorization');
 
     const handleTakeawayChange = (e) => {
@@ -20,6 +21,7 @@ function TakeAway() {
             'Authorization': `Bearer ${Authorization}`
         })
             .then(response => {
+                setModal(true);
                 console.log('후기 전송 성공');
             })
             .catch(error => {
@@ -29,14 +31,28 @@ function TakeAway() {
     };
 
     return (
+        <> 
+        { modal && 
+            <StyledModalWrapper/> 
+        }
+        { modal &&
+            <StyledModal>
+                <br/>
+            후기 전송 완료 되었습니다!<br/>
+            참여해주셔서 감사합니다!
+            <ExitButton>나가기</ExitButton>
+            </StyledModal>
+        }
+            
         <TakeAwayBack>
             <StyledLogo src={SCLogo}/>
             <TitleImg src={SCtitle}/>
             <TakeAwayWrapper>
-                <TakeAwayInput value={takeaway} onChange={handleTakeawayChange} placeholder="후기를 입력해주세요." />
+                <TakeAwayInput value={takeaway} onChange={handleTakeawayChange} placeholder="유기 동물에 대해 알게된 후기를 입력해주세요! 여러분의 후기가 저희에게 큰 도움이 됩니다! 사이트의 개선 방안에 대해 남겨 주셔도 좋습니다!" />
             </TakeAwayWrapper>
-            <SubmitButton onClick={handleSubmitTakeaway}>후기 제출하기!</SubmitButton>
+            <SubmitButton onClick={()=>handleSubmitTakeaway()}>후기 제출하기!</SubmitButton>
         </TakeAwayBack>
+        </>
     );
 }
 
@@ -50,6 +66,41 @@ const TakeAwayBack = styled.div`
     background-color : #20C85F;
     color : #FFFFFF;
     height: 100vh;
+`;
+
+const StyledModalWrapper = styled.div`
+    position : absolute;
+    width : 100%;
+    height : 100%;
+    background-color : #000000;
+    opacity: 0.3;
+`
+
+const StyledModal = styled.div`
+    position : absolute;
+    top : 40%;
+    left : 20%;
+    width : 60%;
+    height : 20%;
+    text-align : center;
+    font-size : 1.5em;
+    background: #F3F4F5;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+`
+
+const ExitButton = styled.div`
+    width: 50%;
+    text-align : center;
+    margin-top : 10%;
+    margin-left : 25%;
+    color: #FFFFFF;
+    font-size : 1.25em;
+    font-weight : 400;
+
+    background : #20C85F;
+    border-radius: 8px;
+    text-decoration: none;
 `;
 
 const TitleImg = styled.img`
