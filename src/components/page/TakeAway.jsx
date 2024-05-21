@@ -40,7 +40,6 @@ function TakeAway() {
                 <br/>
             후기 전송 완료 되었습니다!<br/>
             참여해주셔서 감사합니다!
-            <ExitButton>나가기</ExitButton>
             </StyledModal>
         }
             
