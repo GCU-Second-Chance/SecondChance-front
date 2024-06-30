@@ -11,7 +11,7 @@ function Home() {
 
     const donate = async () => {
         try {
-            const res = await axios.get(`https://port-0-secondchance-back-rm6l2llvw8fnyw.sel5.cloudtype.app/v1/feature/donation`, {
+            const res = await axios.get(`http://localhost:8000/donation/`, {
                 withCredentials: true
             });
             console.log('Donation response:', res.data);
